@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 
 const HERO_IMAGE = "https://cdn.poehali.dev/projects/8dedaca7-973e-4a17-a304-9351a817434b/files/651ce42a-b399-4e0c-addc-a013cc38b007.jpg";
@@ -106,7 +107,7 @@ const stats = [
 export default function Index() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [contactForm, setContactForm] = useState({ name: "", phone: "", message: "" });
-  const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleFaq = (i: number) => setOpenFaq(openFaq === i ? null : i);
 
@@ -139,6 +140,7 @@ export default function Index() {
           <button
             className="gradient-gold font-semibold px-5 py-2.5 rounded-lg hover-lift glow-gold-sm transition-all"
             style={{ background: "linear-gradient(135deg, #D4A843 0%, #F0C96A 50%, #C49030 100%)", color: "#080E1C", fontSize: "14px" }}
+            onClick={() => navigate("/constructor")}
           >
             Начать заявку
           </button>
@@ -182,6 +184,7 @@ export default function Index() {
               <button
                 className="font-bold px-8 py-4 rounded-xl text-lg hover-lift transition-all"
                 style={{ background: "linear-gradient(135deg, #D4A843, #F0C96A, #C49030)", color: "#080E1C", boxShadow: "0 0 30px rgba(212,168,67,0.3)" }}
+                onClick={() => navigate("/constructor")}
               >
                 Составить заявление →
               </button>
@@ -314,6 +317,7 @@ export default function Index() {
             <button
               className="font-bold px-10 py-4 rounded-xl text-lg hover-lift transition-all"
               style={{ background: "linear-gradient(135deg, #D4A843, #F0C96A, #C49030)", color: "#080E1C", boxShadow: "0 0 30px rgba(212,168,67,0.3)" }}
+              onClick={() => navigate("/constructor")}
             >
               Начать прямо сейчас →
             </button>
